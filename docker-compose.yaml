@@ -14,11 +14,9 @@ services:
     env_file:
       - .env
 
-    deploy:
-      resources:
-        reservations:
-          devices:
-            - capabilities: [ gpu ]
+    runtime: nvidia
+    environment:
+      - NVIDIA_VISIBLE_DEVICES=all
 
 networks:
   ask4game:
