@@ -7,12 +7,12 @@ services:
     networks:
       - ask4game
     volumes:
-      - "mount:/app"
+      - "./mount:/app"
     ports:
       - "127.0.0.1:5500:5000"
       - "127.0.0.1:9696:9696"
-    environment:
-      - HUGGINGFACE_TOKEN=${HUGGINGFACE_TOKEN}
+    env_file:
+      - .env
 
     deploy:
       resources:
