@@ -1,0 +1,26 @@
+services:
+  training_container:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: training_container
+    networks:
+      - ask4game
+    volumes:
+      - "mount:/app"
+    ports:
+      - "127.0.0.1:5500:5000"
+      - "127.0.0.1:9696:9696"
+    environment:
+      - HUGGINGFACE_TOKEN=${HUGGINGFACE_TOKEN}
+
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - capabilities: [ gpu ]
+
+networks:
+  ask4game:
+    external: true
+    name: ask4game
