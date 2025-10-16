@@ -1,7 +1,7 @@
 services:
   training_container:
     build:
-      context: .
+      context: ..
       dockerfile: Dockerfile
     container_name: training_container
     networks:

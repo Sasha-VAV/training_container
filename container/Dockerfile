@@ -5,12 +5,12 @@ RUN apt-get update && apt-get install -y python3 python3-pip vim
 ENV UV_SYSTEM_PYTHON=1
 
 WORKDIR /app
-COPY ./requirements.txt ./
+COPY requirements.txt ./
 
 RUN pip install uv
 RUN uv pip install -r requirements.txt
 
-COPY . .
+COPY .. .
 
 EXPOSE 5000
 
